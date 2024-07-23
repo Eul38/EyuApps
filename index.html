@@ -20,8 +20,8 @@
     </header>
     
     <section id="hero">
-        <h2>Discover and Download Amazing Apps</h2>
-        <p>Find the best apps for games, tools, social networking, and education devloped by Eyuel Engida.</p>
+        <h2>Discover and Download Amazing Android Apps</h2>
+        <p>Find the best apps for games, tools, social networking, and education developed by Eyuel Engida.</p>
     </section>
 
     <section id="apps">
@@ -37,7 +37,12 @@
                 <img src="images/game.png" alt="Game 2">
                 <h4>Snake3</h4>
                 <p>A fun snake game.</p>
-                <a href="downloads/Snake3.apk" class="download-btn">Download</a>
+                <label for="snake3-version">Select Version:</label>
+                <select id="snake3-version">
+                    <option value="downloads/Snake3_v3.apk">Version 3 (3.4 mb)</option>
+                    <option value="downloads/Snake3_v4.apk">Version 4 (12.7 mb)</option>
+                </select>
+                <a id="snake3-download-btn" href="downloads/Snake3_v3.apk" class="download-btn">Download</a>
             </div>
         </div>
 
@@ -74,9 +79,18 @@
 
     <footer>
         <p>&copy; 2024 EyuApps. All rights reserved.</p>
-        <p><h5>(follow the main website for update)</h5></p>
+        <h5>(follow the main website for updates)</h5>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const selectElement = document.getElementById("snake3-version");
+            const downloadButton = document.getElementById("snake3-download-btn");
+
+            selectElement.addEventListener("change", function() {
+                downloadButton.href = selectElement.value;
+            });
+        });
+    </script>
 </body>
 </html>
